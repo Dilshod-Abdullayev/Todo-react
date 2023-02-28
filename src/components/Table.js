@@ -1,10 +1,14 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
+import { DarkmodeContextProvider } from "../Context/DarkMode";
+import { ThemeContextprovider } from '../Context/ContextMode';
 export default function Table({ data }) {
+  const { search } = useContext(ThemeContextprovider)
+  const { mode, changeMode } = useContext(DarkmodeContextProvider)
+
   return (
-    <div className="w-3/5 flex justify-center align-middle rounded">
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 rounded">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <div className={`"w-3/5 flex justify-center align-middle rounded " ${mode}`}>
+      <table className="w-full text-sm text-left   rounded">
+        <thead className="text-xs  uppercase   ">
           <tr>
             <th scope="col" className="px-6 py-3">
               №
@@ -20,8 +24,7 @@ export default function Table({ data }) {
         <tbody>
           {
             data.map((item, index) => (
-              <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-
+              <tr key={index} className=" border-b ">
                 <td className="px-6 py-4">
                   {index + 1}
                 </td>

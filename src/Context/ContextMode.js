@@ -1,12 +1,9 @@
 import React, { createContext, useState } from "react";
 const ThemeContextprovider = createContext()
 function ContextMode({ children }) {
-    const [state, setState] = useState(true)
-    const toggle = () => {
-        setState(!state)
-    }
+    const [search, setSearch] = useState([])
     return (
-        <ThemeContextprovider.Provider value={{ state, toggle }}>
+        <ThemeContextprovider.Provider value={{ search, setSearch }}>
             {children}
         </ThemeContextprovider.Provider>
     )
